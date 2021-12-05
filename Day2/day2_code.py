@@ -9,7 +9,7 @@ import sys
 def collect_data(fname):
     with open(fname, "r") as f:
         all_lines = f.readlines()
-    f.close
+    f.close()
     
     instructions = {"forward": 0, "down": 0, "up": 0}
     for line in all_lines:
