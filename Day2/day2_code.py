@@ -1,7 +1,7 @@
 """
 Advent of Code 2021
 Sean Solomon
-DAY 1
+DAY 2
 """
 
 import sys
@@ -30,7 +30,7 @@ def calculate_total(data):
 def calculate_aim(fname):
     with open(fname, "r") as f:
         all_lines = f.readlines()
-    f.close
+    f.close()
 
     aim = depth = pos = 0
     for line in all_lines:
