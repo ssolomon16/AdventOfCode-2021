@@ -1,7 +1,7 @@
 """
 Advent of Code 2021
 Sean Solomon
-DAY 1
+DAY 2
 """
 
 import sys
