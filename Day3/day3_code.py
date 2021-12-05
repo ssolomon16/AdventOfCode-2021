@@ -57,6 +57,6 @@ def main():
     epsilon = int(epsilon_binary, 2)
 
     print(f"Product of gamma and epsilon is {gamma * epsilon}")    
-    
+
 if __name__ == "__main__":
     main()
