@@ -7,11 +7,6 @@ DAY 3
 import sys
 import pandas as pd
 
-"""
-data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', 'd']}
-pd.DataFrame.from_dict(data)
-"""
-
 def collect_data(fname):
     with open(fname, "r") as f:
         all_lines = f.readlines()
@@ -60,9 +55,10 @@ def oxygen_rating(df):
                 df = df[df[col] == 1]
             else:
                 df = df[df[col] == 0]
-
+        
         except:
             continue
+
     return df
 
 def co2_rating(df):
@@ -80,6 +76,7 @@ def co2_rating(df):
 
         except:
             continue
+    
     return df
 
 def main():
@@ -99,10 +96,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-"""
-
-O2: 111000001101
-CO2: 010101111111
-
-"""
