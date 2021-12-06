@@ -48,6 +48,40 @@ def calculate_epsilon(gamma):
     
     return binary_str
 
+def oxygen_rating(df):
+    for col in df:
+        try:
+            if len(df) == 1:
+                return df
+            num_zeros = df[col].value_counts()[0]
+            num_ones = df[col].value_counts()[1]
+
+            if num_ones >= num_zeros:
+                df = df[df[col] == 1]
+            else:
+                df = df[df[col] == 0]
+
+        except:
+            continue
+    return df
+
+def co2_rating(df):
+    for col in df:
+        try:
+            if len(df) == 1:
+                return df
+            num_zeros = df[col].value_counts()[0]
+            num_ones = df[col].value_counts()[1]
+
+            if num_ones < num_zeros:
+                df = df[df[col] == 1]
+            else:
+                df = df[df[col] == 0]
+
+        except:
+            continue
+    return df
+
 def main():
     df = collect_data(sys.argv[1])
     gamma_binary = calculate_gamma(df)
@@ -56,7 +90,19 @@ def main():
     gamma = int(gamma_binary, 2)
     epsilon = int(epsilon_binary, 2)
 
-    print(f"Product of gamma and epsilon is {gamma * epsilon}")    
+    o2 = oxygen_rating(df).to_string(index=False, header=False)
+    co2 = co2_rating(df).to_string(index=False, header=False)
+    o2 = o2.replace(" ", "")
+    co2 = co2.replace(" ", "") 
+
+    print(f"Multipled = {int(o2, 2) * int(co2, 2)}")
 
 if __name__ == "__main__":
     main()
+
+"""
+
+O2: 111000001101
+CO2: 010101111111
+
+"""
